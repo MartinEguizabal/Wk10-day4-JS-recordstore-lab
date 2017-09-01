@@ -46,6 +46,24 @@ var Store = function(store, city, balance) {
 
   Store.prototype.financialSummary = function(){
     return this.stockValue() + this.balance;
-  }
+  };
+
+  // Store.prototype.recordsOfGivenGenre = function(genre){
+  //   var recordsOfGenre = this.inventory.filter(function(item){
+  //     if(item.genre === genre){
+  //       return item; 
+  //       };
+  //     });
+  //     return recordsOfGenre;
+  //   };
+
+  Store.prototype.recordsOfGivenGenre = function(genre){
+   var recordsOfGenre = this.inventory.map(function(item){
+     if(item.genre === genre){
+       return item.printDetails();
+        }
+      });
+     return recordsOfGenre;
+   };
 
 module.exports = Store;

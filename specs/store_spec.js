@@ -8,6 +8,7 @@ describe("Store", function(){
   var record1;
   var record2;
   var record3;
+  var record4;
 
   beforeEach(function(){
     store = new Store("A&B Sound", "Vancouver", 0);
@@ -15,6 +16,7 @@ describe("Store", function(){
     record1 = new Record("Guns n' Roses", "Appetite for Destruction", "Rock", 12);
     record2 = new Record("Beck", "Odelay", "Alternative", 15);
     record3 = new Record("Timber Timbre", "Hot Dreams", "Folk Rock", 10);
+    record4 = new Record("Guns n' Roses", "Use Your Illusions", "Rock", 20);
   });
 
   it("inventory count counts 0", function(){
@@ -30,7 +32,7 @@ describe("Store", function(){
   it("can list inventory", function(){
     store.addRecord(record3);
     store.addRecord(record1);
-    assert.strictEqual(store.listInventory()[0], "Artist: Timber Timbre, Title: Hot Dreams, Genre: Folk Rock, Price: 10.");
+    assert.strictEqual(store.listInventory()[0], "Artist: Timber Timbre, Title: Hot Dreams, Genre: Folk Rock, Price: 10");
   });
 
   it("can sell record", function(){
@@ -59,5 +61,12 @@ describe("Store", function(){
     store.addRecord(record2);
     store.sellRecord(record2);
     assert.strictEqual(store.financialSummary(), 27);
+  })
+
+  it("can return records of genre", function(){
+    store.addRecord(record1);
+    store.addRecord(record2);
+    store.addRecord(record4);
+    assert.strictEqual(store.recordsOfGivenGenre("Rock")[0], "Artist: Guns n' Roses, Title: Appetite for Destruction, Genre: Rock, Price: 12");
   })
 });
