@@ -13,4 +13,8 @@ describe("Record", function() {
     record2 = new Record("Beck", "Odelay", "Alternative", 15);
     record3 = new Record("Hot Dreams", "Timber Timbre", "Folk Rock", 10);
   })
+
+  it("can print out record properties", function(){
+    assert.strictEqual(record2.printDetails(), "Artist: Beck, Title: Odelay, Genre: Alternative, Price: 15.");
+  });
 })
