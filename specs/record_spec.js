@@ -12,7 +12,7 @@ describe("Record", function() {
   beforeEach(function(){
     record1 = new Record("Guns n' Roses", "Appetite for Destruction", "Rock", 12);
     record2 = new Record("Beck", "Odelay", "Alternative", 15);
-    record3 = new Record("Hot Dreams", "Timber Timbre", "Folk Rock", 10);
+    record3 = new Record("Timber Timbre", "Hot Dreams", "Folk Rock", 10);
     record4 = new Record("Guns n' Roses", "Use Your Illusions", "Rock", 20);
   })
 

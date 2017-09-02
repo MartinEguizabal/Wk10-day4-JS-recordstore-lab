@@ -31,4 +31,25 @@ Customer.prototype.recordsOfGivenGenre = function(genre){
   });
   return recordsOfGenre;
 };
+
+Customer.prototype.sortByValue = function(){
+  var recordsByValue = this.collection.sort(function(a, b){
+    return (b.price - a.price);
+  });
+  // var markeString = recordsByValue.forEach(function(record){
+  //   return record.printDetails();
+  // });
+  // console.log(recordsByValue);
+  return recordsByValue;
+};
+
+Customer.prototype.compareValue = function(other_customer){
+  return "First Customer Collection value: " + this.collectionValue() + ". " + "Second Customer Collection value: " + other_customer.collectionValue() + ".";
+}
+
 module.exports = Customer;
+
+
+
+
+// how to test without having to make each item in the array a string?
